@@ -1,0 +1,30 @@
+backend:
+  name: github
+  repo: kazuyahub/cryptohunt-site
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "content/articles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - label: "Author"
+        name: "author"
+        widget: "select"
+        options: ["Usman Kashif", "Ilyan Kashif"]
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Hero Image URL", name: "image", widget: "string", required: false }
+      - { label: "Read Time", name: "read_time", widget: "string", default: "5 min" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "select", options: ["Scam Alerts", "Investigations", "Risk Analysis", "Crypto Analysis"] }
+      - { label: "Body", name: "body", widget: "markdown" }
